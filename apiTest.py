@@ -12,11 +12,11 @@ headers = {
 
 response = requests.request("GET", url, headers=headers, params=querystring)
 corona = response.json()
-
 messageString = querystring['country'] + "\n"
 
 for stats in corona['data']['covid19Stats'][0:1]:
     messageString += "Confirmed Cases: " + str(stats['confirmed']) + "\n"
-    messageString += "Deaths: " + str(stats['deaths'])
+    messageString += "Deaths: " + str(stats['deaths']) + "\n"
+    messageString += "Last Update: " + str(stats['lastUpdate'])
 
 print(messageString)
