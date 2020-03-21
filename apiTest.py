@@ -19,4 +19,4 @@ for stats in corona['data']['covid19Stats'][0:1]:
     messageString += "Deaths: " + str(stats['deaths']) + "\n"
     messageString += "Last Update: " + str(stats['lastUpdate'])
 
-print(messageString + "!!!!")
+print(messageString)
