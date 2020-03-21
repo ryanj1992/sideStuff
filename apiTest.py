@@ -13,14 +13,10 @@ headers = {
 response = requests.request("GET", url, headers=headers, params=querystring)
 corona = response.json()
 
-messageString = ""
+messageString = querystring['country'] + "\n"
 
 for stats in corona['data']['covid19Stats'][0:1]:
-    messageString += "Confirmed Cases: " + str(stats['confirmed'])
+    messageString += "Confirmed Cases: " + str(stats['confirmed']) + "\n"
     messageString += "Deaths: " + str(stats['deaths'])
 
-message = client.messages.create(
-    to="+6738649949",
-    from_="+12062220354",
-    body=messageString)
-print(message.sid)
+print(messageString)
