@@ -17,7 +17,7 @@ headers = {
 response = requests.request("GET", url, headers=headers, params=querystring)
 corona = response.json()
 
-messageString = "The number of cases and deaths in the UK today:\n"
+messageString = "The amount of cases and deaths in the UK today:\n"
 
 for stats in corona['data']['covid19Stats'][0:1]:
     messageString += "Confirmed Cases: " + str(stats['confirmed']) + "\n"
