@@ -16,14 +16,13 @@ class Person:
 objs = list()
 for para in document.paragraphs:
     text = para.text
-    if "Mother" in text:
-        name_list = re.findall(r"^([\w]+ [\w]+)", text)
-        email_list = re.findall(r"[a-z0-9\-+_]+@[a-z0-9\-+_]+\.[a-z]+", text)
-        parent_list = re.findall(r"^(?:\S+\s){2}(\S+)", text)
-        for name in name_list:
-            for email in email_list:
-                for parent in parent_list:
-                    objs.append(Person(name, email, parent))
+    name_list = re.findall(r"^([\w]+ [\w]+)", text)
+    email_list = re.findall(r"[a-z0-9\-+_]+@[a-z0-9\-+_]+\.[a-z]+", text)
+    parent_list = re.findall(r"^(?:\S+\s){2}(\S+)", text)
+    for name in name_list:
+        for email in email_list:
+            for parent in parent_list:
+                objs.append(Person(name, email, parent))
 
 # for obj in objs:
 #     print(obj.name + " " + obj.email + " " + obj.parent)
